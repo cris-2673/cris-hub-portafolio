@@ -1,0 +1,588 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+
+/* =========================
+   CONFIGURACION GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #080d18;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   BARRA DE NAVEGACION
+========================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 9%;
+    border-bottom: 1px solid #1d293b;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #00bfff;
+}
+
+.nav-text {
+    color: #718096;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+
+.container {
+    width: 100%;
+    min-height: 90vh;
+    padding: 50px 9% 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================
+   TITULO PRINCIPAL
+========================= */
+
+.hero {
+    text-align: center;
+    margin: 55px 0 65px;
+    animation: aparecer 1s ease;
+}
+
+.subtitle {
+    color: #00bfff;
+    font-size: 12px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 9vw, 105px);
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: white;
+}
+
+.hero h1 span {
+    color: #00bfff;
+}
+
+.line {
+    width: 90px;
+    height: 4px;
+    background: #00bfff;
+    margin: 25px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00bfff;
+}
+
+.description {
+    color: #91a0b5;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   TARJETAS
+========================= */
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+.card {
+    background: linear-gradient(
+        145deg,
+        #111c2e,
+        #0c1422
+    );
+
+    border: 1px solid #24334a;
+    border-radius: 15px;
+    padding: 40px;
+    min-height: 250px;
+
+    transition: 0.4s ease;
+
+    animation: aparecer 1.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    border-color: #00bfff;
+
+    box-shadow: 0 10px 35px rgba(0, 191, 255, 0.12);
+}
+
+.number {
+    font-size: 10px;
+    color: #00bfff;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.card h2 {
+    font-size: 25px;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.card ul {
+    list-style: none;
+}
+
+.card ul li {
+    color: #a9b6c9;
+    margin-bottom: 16px;
+    font-size: 14px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.card ul li::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    background: #00bfff;
+
+    position: absolute;
+    left: 0;
+    top: 6px;
+
+    border-radius: 50%;
+}
+
+.card p {
+    color: #a9b6c9;
+    font-size: 14px;
+    line-height: 2;
+}
+
+
+/* =========================
+   BOTON VER MIS HABILIDADES
+========================= */
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 45px;
+}
+
+#btnHabilidades {
+    background: #16a34a;
+    color: white;
+
+    border: none;
+    padding: 16px 35px;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+    box-shadow: 0 5px 20px rgba(22, 163, 74, 0.2);
+}
+
+#btnHabilidades:hover {
+    background: #22c55e;
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.35);
+}
+
+
+/* =========================
+   PIE DE PAGINA
+========================= */
+
+footer {
+    text-align: center;
+
+    border-top: 1px solid #1d293b;
+
+    padding: 25px 0;
+
+    margin-top: auto;
+}
+
+footer p {
+    color: #53647c;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   SEGUNDA PANTALLA
+========================= */
+
+.segunda-pantalla {
+    position: fixed;
+
+    inset: 0;
+
+    background: #080d18;
+
+    z-index: 10;
+
+    padding: 40px 9%;
+
+    display: flex;
+    flex-direction: column;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateX(40px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        visibility 0.5s;
+}
+
+
+/* CUANDO SE ABRE LA SEGUNDA PANTALLA */
+
+.segunda-pantalla.activa {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateX(0);
+
+}
+
+
+/* =========================
+   BOTON VOLVER
+========================= */
+
+.btn-volver {
+
+    align-self: flex-start;
+
+    background: transparent;
+
+    color: #00bfff;
+
+    border: 1px solid #00bfff;
+
+    padding: 12px 20px;
+
+    border-radius: 7px;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+.btn-volver:hover {
+
+    background: #00bfff;
+
+    color: #080d18;
+
+}
+
+
+/* =========================
+   CONTENIDO SEGUNDA PANTALLA
+========================= */
+
+.contenido-segundo {
+
+    margin: auto;
+
+    text-align: center;
+
+    max-width: 800px;
+
+    animation: aparecer 0.8s ease;
+
+}
+
+.contenido-segundo h1 {
+
+    font-size: clamp(55px, 9vw, 100px);
+
+    font-weight: 800;
+
+}
+
+.contenido-segundo h1 span {
+
+    color: #00bfff;
+
+}
+
+
+/* =========================
+   TEXTO PERSONAL
+========================= */
+
+.texto-personal {
+
+    max-width: 750px;
+
+    margin: 35px auto 0;
+
+    text-align: left;
+
+}
+
+.texto-personal p {
+
+    color: #a9b6c9;
+
+    font-size: 15px;
+
+    line-height: 2;
+
+    margin-bottom: 25px;
+
+}
+
+.texto-personal p span {
+
+    color: #00bfff;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================
+   LISTA DE HABILIDADES
+========================= */
+
+.texto-personal ul {
+
+    list-style: none;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+
+}
+
+.texto-personal ul li {
+
+    background: #111c2e;
+
+    border: 1px solid #24334a;
+
+    border-radius: 8px;
+
+    padding: 16px;
+
+    color: #d4deeb;
+
+    font-size: 13px;
+
+    transition: 0.3s ease;
+
+}
+
+.texto-personal ul li::before {
+
+    content: "—";
+
+    color: #00bfff;
+
+    margin-right: 10px;
+
+}
+
+.texto-personal ul li:hover {
+
+    border-color: #00bfff;
+
+    transform: translateX(5px);
+
+}
+
+
+/* =========================
+   MENSAJE FINAL
+========================= */
+
+.texto-personal .mensaje-final {
+
+    border-left: 3px solid #00bfff;
+
+    padding: 12px 20px;
+
+    background: #101c30;
+
+    border-radius: 0 8px 8px 0;
+
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =========================
+   DISEÑO PARA CELULARES
+========================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+
+        padding: 22px 6%;
+
+    }
+
+    .nav-text {
+
+        font-size: 8px;
+
+        letter-spacing: 1px;
+
+    }
+
+    .container {
+
+        padding: 35px 6% 20px;
+
+    }
+
+    .hero {
+
+        margin: 55px 0 45px;
+
+    }
+
+    .hero h1 {
+
+        letter-spacing: 2px;
+
+    }
+
+    .subtitle {
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+
+    }
+
+    .content {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+    }
+
+    .card {
+
+        padding: 30px;
+
+    }
+
+    .segunda-pantalla {
+
+        padding: 25px 6%;
+
+        overflow-y: auto;
+
+    }
+
+    .contenido-segundo {
+
+        margin: 45px auto;
+
+        width: 100%;
+
+    }
+
+    .texto-personal {
+
+        margin-top: 25px;
+
+    }
+
+    .texto-personal ul {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .texto-personal p {
+
+        font-size: 13px;
+
+    }
+
+}
